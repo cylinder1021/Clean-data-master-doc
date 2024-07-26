@@ -1,0 +1,22 @@
+This is an example of using rowSums() in R
+test <- c(2,3,NA)
+test1 <- c(3,NA,4)
+df <- data.frame(Chinese = test, Math = test1)
+df$score <- rowSums(df[,c("Chinese","Math")])
+head(df)
+df$score <- rowSums(df[,c("Chinese","Math")],na.rm = TRUE)
+head(df)
+
+From Line 5, df is the following
+  Chinese Math score
+1       2    3     5
+2       3   NA    NA
+3      NA    4    NA
+
+From Line 7, df looks like this.
+  Chinese Math score
+1       2    3     5
+2       3   NA     3
+3      NA    4     4
+
+na.rm = TRUE means ignore NA, which reduces NA numbers in big data.
